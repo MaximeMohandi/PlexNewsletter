@@ -1,14 +1,41 @@
-﻿namespace MediahubNewsletter;
+﻿using System.Net.Http.Headers;
+using System.Runtime.InteropServices.JavaScript;
+using System.Text.Json;
+
+namespace MediahubNewsletter;
 
 public class MediaLibrary
 {
-    public static List<Media> RecentlyAddedMedia()
+    private const string PlexUrl = "http://localhost:32400";
+    private const string PlexToken = "token";
+
+    public static async Task<List<Media>> RecentlyAddedMedia(HttpClient client)
     {
-        return new List<Media>
+        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+        var plexRecentlyAddedMediaUri = new Uri($"{PlexUrl}/library/recentlyAdded?X-Plex-Token={PlexToken}");
+        var response = client.GetAsync(plexRecentlyAddedMediaUri).Result;
+        var content = response.Content.ReadAsStringAsync().Result;
+
+        var catalogJson =  JsonSerializer.Deserialize<Object>(content);
+
+        var mediaList = new List<Media>();
+        using(JsonDocument doc = JsonDocument.Parse(content))
         {
-            new Media { Title = "The Matrix", type = "Movie", AddedAt = DateTime.Now.Date, Summary = "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers."},
-            new Media { Title = "The Matrix Reloaded", type = "Movie", AddedAt = DateTime.Now.Date, Summary = "Neo and his allies"},
-            new Media { Title = "The red wedding", type = "Episode", AddedAt = DateTime.Now.Date, Summary = "The Starks are dead", Season = "season 3", TvShow = "Game of Thrones"}
-        };
+            var root = doc.RootElement;
+            var media = root.GetProperty("MediaContainer").GetProperty("Metadata");
+
+            foreach (var item in media.EnumerateArray())
+            {
+                var title = item.GetProperty("title").GetString();
+                var type = item.GetProperty("type").GetString();
+                var addedAt = item.GetProperty("addedAt").GetUInt32();
+                var summary = item.GetProperty("summary").GetString();
+                mediaList.Add(new Media { Title = title, type = type, AddedAt = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc).AddSeconds(addedAt), Summary = summary});
+            }
+
+
+        }
+        return mediaList;
     }
 }
