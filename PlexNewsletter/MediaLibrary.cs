@@ -2,9 +2,9 @@
 
 public class MediaLibrary
 {
-    private readonly Catalog _catalog;
+    private readonly ICatalog _catalog;
 
-    public MediaLibrary(Catalog catalog)
+    public MediaLibrary(ICatalog catalog)
     {
         _catalog = catalog;
     }

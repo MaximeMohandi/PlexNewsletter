@@ -31,9 +31,7 @@ public class MediaLibraryTest
                 Summary = "After the Dragon leaves the Lonely Mountain, the people of Lake-town see a threat coming. Orcs, dwarves, elves and people prepare for war. Bilbo sees Thorin going mad and tries to help. Meanwhile, Gandalf is rescued from the Necromancer's prison and his rescuers realize who the Necromancer is.",
             },
         };
-        var apiResponse = await File.ReadAllTextAsync("mockedPlexResponse.json");
-        var client = MockHttpRequestHandler.MockResponse(HttpStatusCode.OK, apiResponse);
-        var catalog = new Catalog(client);
+        var catalog = Mock.Of<ICatalog>(c => c.Medias() == Task.FromResult(expected));
         var mediaLibrary = new MediaLibrary(catalog);
 
         var result = await mediaLibrary.RecentlyAddedMedia();

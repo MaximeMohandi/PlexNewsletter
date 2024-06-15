@@ -3,13 +3,13 @@ using System.Text.Json;
 
 namespace MediahubNewsletter;
 
-public class Catalog
+public class PlexCatalog : ICatalog
 {
     private readonly HttpClient _client;
     private const string PlexUrl = "http://localhost:32400";
     private const string PlexToken = "token";
 
-    public Catalog(HttpClient client)
+    public PlexCatalog(HttpClient client)
     {
         _client = client;
         _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));

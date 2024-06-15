@@ -3,7 +3,7 @@ using MediahubNewsletter;
 
 namespace PlexNewsletter.Tests;
 
-public class CatalogTests
+public class PlexCatalogTests
 {
     [Test]
     public async Task ShouldFetchMediaFromCatalog()
@@ -24,7 +24,7 @@ public class CatalogTests
         };
         var apiResponse = await File.ReadAllTextAsync("mockedPlexResponse.json");
         var client = MockHttpRequestHandler.MockResponse(HttpStatusCode.OK, apiResponse);
-        var catalog = new Catalog(client);
+        var catalog = new PlexCatalog(client);
 
         var result = await catalog.Medias();
 
