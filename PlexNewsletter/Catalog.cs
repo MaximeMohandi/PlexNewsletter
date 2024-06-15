@@ -17,38 +17,35 @@ public class Catalog
 
     public async Task<List<Media>> Medias()
     {
-        var mediaList = new List<Media>();
-        using (JsonDocument doc = JsonDocument.Parse(FetchMediaFromPlex()))
-        {
-            var root = doc.RootElement;
-            var media = root.GetProperty("MediaContainer").GetProperty("Metadata");
-
-            foreach (var item in media.EnumerateArray())
-            {
-                mediaList.Add(ConvertToMedia(item));
-            }
-        }
-
-        return mediaList;
+        var plexMedias = await PlexMediaCatalog();
+        return ParsePlexMedia(plexMedias);
     }
 
-    private string FetchMediaFromPlex()
+    private async Task<JsonDocument> PlexMediaCatalog()
     {
         var plexRecentlyAddedMediaUri = new Uri($"{PlexUrl}/library/recentlyAdded?X-Plex-Token={PlexToken}");
-        var response = _client.GetAsync(plexRecentlyAddedMediaUri).Result;
-        var content = response.Content.ReadAsStringAsync().Result;
-        return content;
+        var response = await _client.GetAsync(plexRecentlyAddedMediaUri);
+        return  JsonDocument.Parse(await response.Content.ReadAsStringAsync());
     }
 
-    private static Media ConvertToMedia(JsonElement item)
+    private static List<Media> ParsePlexMedia(JsonDocument plexCatalog)
     {
-        return new Media
+        var medias = new List<Media>();
+
+        var root = plexCatalog.RootElement;
+        var media = root.GetProperty("MediaContainer").GetProperty("Metadata");
+
+        foreach (var item in media.EnumerateArray())
         {
-            Title = item.GetProperty("title").GetString(),
-            Type = item.GetProperty("type").GetString(),
-            AddedAt = DateTime.UnixEpoch
-                .AddSeconds(item.GetProperty("addedAt").GetInt32()),
-            Summary = item.GetProperty("summary").GetString()
-        };
+            medias.Add(new Media
+            {
+                Title = item.GetProperty("title").GetString(),
+                Type = item.GetProperty("type").GetString(),
+                AddedAt = DateTime.UnixEpoch
+                    .AddSeconds(item.GetProperty("addedAt").GetInt32()),
+                Summary = item.GetProperty("summary").GetString()
+            });
+        }
+        return medias;
     }
 }
