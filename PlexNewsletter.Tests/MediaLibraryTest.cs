@@ -31,25 +31,8 @@ public class MediaLibraryTest
                 Summary = "After the Dragon leaves the Lonely Mountain, the people of Lake-town see a threat coming. Orcs, dwarves, elves and people prepare for war. Bilbo sees Thorin going mad and tries to help. Meanwhile, Gandalf is rescued from the Necromancer's prison and his rescuers realize who the Necromancer is.",
             },
         };
-
-        var apiResponse = File.ReadAllText("mockedPlexResponse.json");
-
-        var mockHttpMessageHandler = new Mock<HttpMessageHandler>();
-        mockHttpMessageHandler
-            .Protected()
-            .Setup<Task<HttpResponseMessage>>(
-                "SendAsync",
-                ItExpr.IsAny<HttpRequestMessage>(),
-                ItExpr.IsAny<CancellationToken>()
-            )
-            .ReturnsAsync(new HttpResponseMessage
-            {
-                StatusCode = HttpStatusCode.OK,
-                Content = new StringContent(apiResponse, Encoding.UTF8, "application/json")
-            });
-
-        var client = new HttpClient(mockHttpMessageHandler.Object);
-
+        var apiResponse = await File.ReadAllTextAsync("mockedPlexResponse.json");
+        var client = MockHttpRequestHandler.MockResponse(HttpStatusCode.OK, apiResponse);
 
         var result = await MediaLibrary.RecentlyAddedMedia(client);
 

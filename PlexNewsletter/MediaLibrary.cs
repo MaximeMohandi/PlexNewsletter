@@ -1,5 +1,4 @@
 ﻿using System.Net.Http.Headers;
-using System.Runtime.InteropServices.JavaScript;
 using System.Text.Json;
 
 namespace MediahubNewsletter;
@@ -16,8 +15,6 @@ public class MediaLibrary
         var plexRecentlyAddedMediaUri = new Uri($"{PlexUrl}/library/recentlyAdded?X-Plex-Token={PlexToken}");
         var response = client.GetAsync(plexRecentlyAddedMediaUri).Result;
         var content = response.Content.ReadAsStringAsync().Result;
-
-        var catalogJson =  JsonSerializer.Deserialize<Object>(content);
 
         var mediaList = new List<Media>();
         using(JsonDocument doc = JsonDocument.Parse(content))
