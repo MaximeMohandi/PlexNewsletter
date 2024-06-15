@@ -42,16 +42,13 @@ public class Catalog
 
     private static Media ConvertToMedia(JsonElement item)
     {
-        var title = item.GetProperty("title").GetString();
-        var type = item.GetProperty("type").GetString();
-        var addedAt = item.GetProperty("addedAt").GetUInt32();
-        var summary = item.GetProperty("summary").GetString();
         return new Media
         {
-            Title = title,
-            Type = type,
-            AddedAt = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc).AddSeconds(addedAt),
-            Summary = summary
+            Title = item.GetProperty("title").GetString(),
+            Type = item.GetProperty("type").GetString(),
+            AddedAt = DateTime.UnixEpoch
+                .AddSeconds(item.GetProperty("addedAt").GetInt32()),
+            Summary = item.GetProperty("summary").GetString()
         };
     }
 }
