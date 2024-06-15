@@ -33,8 +33,8 @@ public class MediaLibraryTest
         };
         var apiResponse = await File.ReadAllTextAsync("mockedPlexResponse.json");
         var client = MockHttpRequestHandler.MockResponse(HttpStatusCode.OK, apiResponse);
-
-        var result = await MediaLibrary.RecentlyAddedMedia(client);
+        var mediaLibrary = new MediaLibrary(client);
+        var result = await mediaLibrary.RecentlyAddedMedia();
 
         Assert.That(result, Is.EquivalentTo(expected));
     }

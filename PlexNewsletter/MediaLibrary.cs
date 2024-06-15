@@ -5,15 +5,20 @@ namespace MediahubNewsletter;
 
 public class MediaLibrary
 {
+    private readonly HttpClient _client;
     private const string PlexUrl = "http://localhost:32400";
     private const string PlexToken = "token";
 
-    public static async Task<List<Media>> RecentlyAddedMedia(HttpClient client)
+    public MediaLibrary(HttpClient client)
     {
-        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        _client = client;
+        _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+    }
 
+    public async Task<List<Media>> RecentlyAddedMedia()
+    {
         var plexRecentlyAddedMediaUri = new Uri($"{PlexUrl}/library/recentlyAdded?X-Plex-Token={PlexToken}");
-        var response = client.GetAsync(plexRecentlyAddedMediaUri).Result;
+        var response = _client.GetAsync(plexRecentlyAddedMediaUri).Result;
         var content = response.Content.ReadAsStringAsync().Result;
 
         var mediaList = new List<Media>();
