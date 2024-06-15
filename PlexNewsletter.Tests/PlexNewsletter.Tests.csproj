@@ -24,7 +24,10 @@
     </ItemGroup>
 
     <ItemGroup>
-        <None Update="mockedPlexResponse.json">
+        <None Update="mockedPlexResponseOnlyMovies.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="mockedPlexResponseOnlyShows.json">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
     </ItemGroup>

@@ -1,0 +1,144 @@
+﻿{
+  "MediaContainer": {
+    "size": 50,
+    "allowSync": false,
+    "identifier": "com.plexapp.plugins.library",
+    "mediaTagPrefix": "/system/bundle/media/flags/",
+    "mediaTagVersion": 1717691851,
+    "mixedParents": true,
+    "Metadata": [
+      {
+        "ratingKey": "10152",
+        "key": "/library/metadata/10152",
+        "parentRatingKey": "8798",
+        "grandparentRatingKey": "8797",
+        "guid": "plex://episode/66091f7eafe956bb2d0a10ba",
+        "parentGuid": "plex://season/64a16db63faf4de70ee9f405",
+        "grandparentGuid": "plex://show/5d9c081702391c001f580ca4",
+        "grandparentSlug": "my-hero-academia",
+        "type": "episode",
+        "title": "Inflation",
+        "grandparentKey": "/library/metadata/8797",
+        "parentKey": "/library/metadata/8798",
+        "grandparentTitle": "My Hero Academia",
+        "parentTitle": "Season 7",
+        "originalTitle": "INFLATION",
+        "contentRating": "TV-14",
+        "summary": "",
+        "index": 7,
+        "parentIndex": 7,
+        "year": 2024,
+        "thumb": "/library/metadata/10152/thumb/1718444426",
+        "art": "/library/metadata/8797/art/1718325301",
+        "parentThumb": "/library/metadata/8798/thumb/1717248344",
+        "grandparentThumb": "/library/metadata/8797/thumb/1718325301",
+        "grandparentArt": "/library/metadata/8797/art/1718325301",
+        "grandparentTheme": "/library/metadata/8797/theme/1718325301",
+        "duration": 1430070,
+        "originallyAvailableAt": "2024-06-15",
+        "addedAt": 1718444424,
+        "updatedAt": 1718444426,
+        "Media": [
+          {
+            "id": 18865,
+            "duration": 1430070,
+            "bitrate": 8165,
+            "width": 1920,
+            "height": 1080,
+            "aspectRatio": 1.78,
+            "audioChannels": 2,
+            "audioCodec": "aac",
+            "videoCodec": "h264",
+            "videoResolution": "1080",
+            "container": "mkv",
+            "videoFrameRate": "24p",
+            "audioProfile": "lc",
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 20024,
+                "key": "/library/parts/20024/1718444417/file.mkv",
+                "duration": 1430070,
+                "file": "/data/TV Shows/My Hero Academia/Season 7/My Hero Academia (2016) - S07E07 - 145 - Inflation [HDTV-1080p][8bit][x264][AAC 2.0][JA]-SubsPlease.mkv",
+                "size": 1459540418,
+                "audioProfile": "lc",
+                "container": "mkv",
+                "videoProfile": "high"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "ratingKey": "10151",
+        "key": "/library/metadata/10151",
+        "parentRatingKey": "10131",
+        "grandparentRatingKey": "10130",
+        "guid": "plex://episode/65f449556a72f75dfdf39dec",
+        "parentGuid": "plex://season/65f449556a72f75dfdf39dd1",
+        "grandparentGuid": "plex://show/5e269a8c752e36003dd925a4",
+        "grandparentSlug": "power-book-ii-ghost",
+        "type": "episode",
+        "title": "To Thine Own Self",
+        "grandparentKey": "/library/metadata/10130",
+        "parentKey": "/library/metadata/10131",
+        "grandparentTitle": "Power Book II: Ghost",
+        "parentTitle": "Season 4",
+        "contentRating": "TV-MA",
+        "summary": "Tariq and Brayden struggle to adjust to life as normal, broke college students; Monet wants back into the game and answers about who took shots at her; Noma seeks out an opportunity to expand with the Russians.",
+        "index": 2,
+        "parentIndex": 4,
+        "year": 2024,
+        "thumb": "/library/metadata/10151/thumb/1718386005",
+        "art": "/library/metadata/10130/art/1718418743",
+        "parentThumb": "/library/metadata/10131/thumb/1718003778",
+        "grandparentThumb": "/library/metadata/10130/thumb/1718418743",
+        "grandparentArt": "/library/metadata/10130/art/1718418743",
+        "grandparentTheme": "/library/metadata/10130/theme/1718418743",
+        "duration": 3260464,
+        "originallyAvailableAt": "2024-06-14",
+        "addedAt": 1718386003,
+        "updatedAt": 1718386005,
+        "Media": [
+          {
+            "id": 18864,
+            "duration": 3260464,
+            "bitrate": 9182,
+            "width": 1920,
+            "height": 1080,
+            "aspectRatio": 1.78,
+            "audioChannels": 6,
+            "audioCodec": "eac3",
+            "videoCodec": "h264",
+            "videoResolution": "1080",
+            "container": "mkv",
+            "videoFrameRate": "24p",
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 20023,
+                "key": "/library/parts/20023/1718385997/file.mkv",
+                "duration": 3260464,
+                "file": "/data/TV Shows/Power Book II - Ghost/Season 4/Power Book II - Ghost - 2020 - S04E02 - To Thine Own Self.mkv",
+                "size": 3743059739,
+                "container": "mkv",
+                "videoProfile": "high"
+              }
+            ]
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Michael Rainey Jr."
+          },
+          {
+            "tag": "Shane Johnson"
+          },
+          {
+            "tag": "Mary J. Blige"
+          }
+        ]
+      }
+    ]
+  }
+}

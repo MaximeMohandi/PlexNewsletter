@@ -37,14 +37,35 @@ public class PlexCatalog : ICatalog
 
         foreach (var item in media.EnumerateArray())
         {
-            medias.Add(new Media
+            var title = item.GetProperty("title").GetString();
+            var type = item.GetProperty("type").GetString();
+            var addedAt = DateTime.UnixEpoch
+                .AddSeconds(item.GetProperty("addedAt").GetInt32());
+            var summary = item.GetProperty("summary").GetString();
+
+            if (type == "episode")
             {
-                Title = item.GetProperty("title").GetString(),
-                Type = item.GetProperty("type").GetString(),
-                AddedAt = DateTime.UnixEpoch
-                    .AddSeconds(item.GetProperty("addedAt").GetInt32()),
-                Summary = item.GetProperty("summary").GetString()
-            });
+                medias.Add(new Media
+                {
+                    Title = title,
+                    Type = "show",
+                    AddedAt = addedAt,
+                    Summary = summary,
+                    TvShow = item.GetProperty("grandparentTitle").GetString(),
+                    Season = item.GetProperty("parentIndex").GetInt32(),
+                    Episode = item.GetProperty("index").GetInt32()
+                });
+            }
+            else
+            {
+                medias.Add(new Media
+                {
+                    Title = title,
+                    Type = type,
+                    AddedAt = addedAt,
+                    Summary = summary
+                });
+            }
         }
         return medias;
     }
