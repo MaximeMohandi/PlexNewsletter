@@ -46,6 +46,12 @@ public class Catalog
         var type = item.GetProperty("type").GetString();
         var addedAt = item.GetProperty("addedAt").GetUInt32();
         var summary = item.GetProperty("summary").GetString();
-        return new Media { Title = title, type = type, AddedAt = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc).AddSeconds(addedAt), Summary = summary};
+        return new Media
+        {
+            Title = title,
+            Type = type,
+            AddedAt = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc).AddSeconds(addedAt),
+            Summary = summary
+        };
     }
 }
