@@ -20,49 +20,25 @@ public class PlexCatalog : ICatalog
     {
         var plexRecentlyAddedMediaUri = new Uri($"{PlexUrl}/library/recentlyAdded?X-Plex-Token={PlexToken}");
         var response = await _client.GetAsync(plexRecentlyAddedMediaUri);
-
-        return ParsePlexMedia(JsonDocument.Parse(await response.Content.ReadAsStringAsync()));
+        return ParsePlexMedia(await response.Content.ReadAsStringAsync());
     }
 
-    private static List<Media> ParsePlexMedia(JsonDocument plexCatalog)
+    private static List<Media> ParsePlexMedia(string plexCatalog)
     {
-        var medias = new List<Media>();
+        var plexCatalogJson = JsonDocument.Parse(plexCatalog);
+        var root = plexCatalogJson.RootElement;
+        var metadataJson = root.GetProperty("MediaContainer").GetProperty("Metadata").GetRawText();
+        var plexMedias = JsonSerializer.Deserialize<List<PlexMedia>>(metadataJson);
 
-        var root = plexCatalog.RootElement;
-        var media = root.GetProperty("MediaContainer").GetProperty("Metadata");
-
-        foreach (var item in media.EnumerateArray())
+        return plexMedias.Select(plexMedia => new Media
         {
-            var title = item.GetProperty("title").GetString();
-            var type = item.GetProperty("type").GetString();
-            var addedAt = DateTime.UnixEpoch
-                .AddSeconds(item.GetProperty("addedAt").GetInt32());
-            var summary = item.GetProperty("summary").GetString();
-
-            if (type == "episode")
-            {
-                medias.Add(new Media
-                {
-                    Title = title,
-                    Type = "show",
-                    AddedAt = addedAt,
-                    Summary = summary,
-                    TvShow = item.GetProperty("grandparentTitle").GetString(),
-                    Season = item.GetProperty("parentIndex").GetInt32(),
-                    Episode = item.GetProperty("index").GetInt32()
-                });
-            }
-            else
-            {
-                medias.Add(new Media
-                {
-                    Title = title,
-                    Type = type,
-                    AddedAt = addedAt,
-                    Summary = summary
-                });
-            }
-        }
-        return medias;
+            Title = plexMedia.Title,
+            Type = plexMedia.Type =="movie" ? "movie" : "show",
+            AddedAt = plexMedia.AddedAt,
+            Summary = plexMedia.Summary,
+            Season = plexMedia.Season,
+            TvShow = plexMedia.TvShow,
+            Episode = plexMedia.Episode
+        }).ToList();
     }
 }

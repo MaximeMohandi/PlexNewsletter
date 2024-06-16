@@ -21,7 +21,7 @@ public class PlexCatalogTests
             new Media
             {
                 Title = "The Hobbit: The Battle of the Five Armies", Type = "movie", AddedAt = new DateTime(2024,6,8, hour: 16, minute: 53, second: 59),
-                Summary = "After the Dragon leaves the Lonely Mountain, the people of Lake-town see a threat coming. Orcs, dwarves, elves and people prepare for war. Bilbo sees Thorin going mad and tries to help. Meanwhile, Gandalf is rescued from the Necromancer's prison and his rescuers realize who the Necromancer is.",
+                Summary = "After the Dragon leaves the Lonely Mountain, the people of Lake-town see a threat coming. Orcs, dwarves, elves and people prepare for war. Bilbo sees Thorin going mad and tries to help. Meanwhile, Gandalf is rescued from the Necromancer's prison and his rescuers realize who the Necromancer is."
             },
         };
         var apiResponse = await File.ReadAllTextAsync("mockedPlexResponseOnlyMovies.json");
@@ -30,7 +30,7 @@ public class PlexCatalogTests
 
         var result = await catalog.Medias();
 
-        Assert.That(result, Is.EquivalentTo(expected));
+        CollectionAssert.AreEqual(expected, result);
     }
 
     [Test]
@@ -58,6 +58,6 @@ public class PlexCatalogTests
 
         var result = await catalog.Medias();
 
-        Assert.That(result, Is.EquivalentTo(expected));
+        CollectionAssert.AreEqual(expected, result);
     }
 }
