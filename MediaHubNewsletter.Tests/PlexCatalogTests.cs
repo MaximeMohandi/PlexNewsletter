@@ -1,14 +1,14 @@
 ﻿using System.Net;
-using MediahubNewsletter;
 using MediahubNewsletter.Catalog;
 using MediahubNewsletter.MediaLibrary;
+using PlexNewsletter.Tests;
 
-namespace PlexNewsletter.Tests;
+namespace MediahubNewsletter.Tests;
 
 public class PlexCatalogTests
 {
     [Test]
-    public async Task ShouldFetchMoviesFromCatalog()
+    public async Task ShouldFetchPlexCatalog()
     {
         var expected = new List<Media>
         {
@@ -23,21 +23,6 @@ public class PlexCatalogTests
                 Title = "The Hobbit: The Battle of the Five Armies", Type = "movie", AddedAt = new DateTime(2024,6,8, hour: 16, minute: 53, second: 59),
                 Summary = "After the Dragon leaves the Lonely Mountain, the people of Lake-town see a threat coming. Orcs, dwarves, elves and people prepare for war. Bilbo sees Thorin going mad and tries to help. Meanwhile, Gandalf is rescued from the Necromancer's prison and his rescuers realize who the Necromancer is."
             },
-        };
-        var apiResponse = await File.ReadAllTextAsync("mockedPlexResponseOnlyMovies.json");
-        var client = MockHttpRequestHandler.MockResponse(HttpStatusCode.OK, apiResponse);
-        var catalog = new PlexCatalog(client);
-
-        var result = await catalog.Medias();
-
-        CollectionAssert.AreEqual(expected, result);
-    }
-
-    [Test]
-    public async Task ShouldFetchShowsFromCatalog()
-    {
-        var expected = new List<Media>
-        {
             new Media
             {
                 Title = "Inflation", Type = "show", AddedAt = new DateTime(2024,6,15, hour: 9, minute: 40, second: 24),
@@ -52,7 +37,7 @@ public class PlexCatalogTests
                 TvShow = "Power Book II: Ghost", Season = 4, Episode = 2
             },
         };
-        var apiResponse = await File.ReadAllTextAsync("mockedPlexResponseOnlyShows.json");
+        var apiResponse = await File.ReadAllTextAsync("mockedPlexResponse.json");
         var client = MockHttpRequestHandler.MockResponse(HttpStatusCode.OK, apiResponse);
         var catalog = new PlexCatalog(client);
 

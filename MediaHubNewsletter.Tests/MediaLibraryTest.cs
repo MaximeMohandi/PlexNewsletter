@@ -1,13 +1,8 @@
-using System.Net;
-using System.Text;
-using System.Text.Json;
-using MediahubNewsletter;
 using MediahubNewsletter.Catalog;
 using MediahubNewsletter.MediaLibrary;
 using Moq;
-using Moq.Protected;
 
-namespace PlexNewsletter.Tests;
+namespace MediahubNewsletter.Tests;
 
 public class MediaLibraryTest
 {
@@ -34,7 +29,7 @@ public class MediaLibraryTest
             },
         };
         var catalog = Mock.Of<ICatalog>(c => c.Medias() == Task.FromResult(expected));
-        var mediaLibrary = new MediaLibrary(catalog);
+        var mediaLibrary = new MediaLibrary.MediaLibrary(catalog);
 
         var result = await mediaLibrary.RecentlyAddedMedia();
 
