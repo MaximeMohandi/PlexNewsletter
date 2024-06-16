@@ -13,7 +13,9 @@ public class MediaLibrary
 
     public async Task<List<Media>> RecentlyAddedMedia()
     {
-        return await _catalog.Medias();
+        var medias = await _catalog.Medias();
+        return medias.Where(MediaIsFromToday).ToList();
     }
 
+    private static bool MediaIsFromToday(Media media) => media.AddedAt == DateTime.Today;
 }
