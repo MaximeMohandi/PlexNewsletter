@@ -1,6 +1,6 @@
 ﻿using MediahubNewsletter.Catalog;
 
-namespace MediahubNewsletter;
+namespace MediahubNewsletter.MediaLibrary;
 
 public class MediaLibrary
 {

@@ -3,6 +3,7 @@ using System.Text;
 using System.Text.Json;
 using MediahubNewsletter;
 using MediahubNewsletter.Catalog;
+using MediahubNewsletter.MediaLibrary;
 using Moq;
 using Moq.Protected;
 

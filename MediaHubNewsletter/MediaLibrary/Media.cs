@@ -1,4 +1,4 @@
-﻿namespace MediahubNewsletter;
+﻿namespace MediahubNewsletter.MediaLibrary;
 
 public record Media
 {

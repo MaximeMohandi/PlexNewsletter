@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using MediahubNewsletter;
 using MediahubNewsletter.Catalog;
+using MediahubNewsletter.MediaLibrary;
 
 namespace PlexNewsletter.Tests;
 
