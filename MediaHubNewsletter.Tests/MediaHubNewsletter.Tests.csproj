@@ -24,8 +24,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <None Update="mockedPlexResponse.json">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <None Update="Catalog\mockedPlexResponse.Json">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
     </ItemGroup>
 

@@ -3,7 +3,7 @@ using System.Text;
 using Moq;
 using Moq.Protected;
 
-namespace PlexNewsletter.Tests;
+namespace MediahubNewsletter.Tests.Catalog;
 
 public class MockHttpRequestHandler {
 

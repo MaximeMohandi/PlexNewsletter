@@ -2,7 +2,7 @@ using MediahubNewsletter.Catalog;
 using MediahubNewsletter.MediaLibrary;
 using Moq;
 
-namespace MediahubNewsletter.Tests;
+namespace MediahubNewsletter.Tests.MediaLibrary;
 
 public class MediaLibraryTest
 {
@@ -48,7 +48,7 @@ public class MediaLibraryTest
             }
         };
         var catalog = Mock.Of<ICatalog>(c => c.Medias() == Task.FromResult(catalogMedias));
-        var mediaLibrary = new MediaLibrary.MediaLibrary(catalog);
+        var mediaLibrary = new MediahubNewsletter.MediaLibrary.MediaLibrary(catalog);
 
         var result = await mediaLibrary.RecentlyAddedMedia();
 
