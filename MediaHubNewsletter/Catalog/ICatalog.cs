@@ -1,4 +1,4 @@
-﻿namespace MediahubNewsletter;
+﻿namespace MediahubNewsletter.Catalog;
 
 public interface ICatalog
 {

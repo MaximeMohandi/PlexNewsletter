@@ -2,6 +2,7 @@ using System.Net;
 using System.Text;
 using System.Text.Json;
 using MediahubNewsletter;
+using MediahubNewsletter.Catalog;
 using Moq;
 using Moq.Protected;
 

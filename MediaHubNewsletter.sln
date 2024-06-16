@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlexNewsletter", "PlexNewsletter\PlexNewsletter.csproj", "{58F8E0B2-5C8B-4428-9263-5EE38BDD323B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaHubNewsletter", "MediaHubNewsletter\MediaHubNewsletter.csproj", "{58F8E0B2-5C8B-4428-9263-5EE38BDD323B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlexNewsletter.Tests", "PlexNewsletter.Tests\PlexNewsletter.Tests.csproj", "{4923F65B-CAC1-4BC7-B1E6-92903E5A516F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaHubNewsletter.Tests", "MediaHubNewsletter.Tests\MediaHubNewsletter.Tests.csproj", "{4923F65B-CAC1-4BC7-B1E6-92903E5A516F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

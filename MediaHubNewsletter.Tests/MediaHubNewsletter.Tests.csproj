@@ -20,7 +20,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\PlexNewsletter\PlexNewsletter.csproj" />
+      <ProjectReference Include="..\MediaHubNewsletter\MediaHubNewsletter.csproj" />
     </ItemGroup>
 
     <ItemGroup>
