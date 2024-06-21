@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using MediahubNewsletter.Catalog;
 using MediahubNewsletter.MediaLibrary;
+using MediahubNewsletter.Tests.Catalog.Mocks;
 
 namespace MediahubNewsletter.Tests.Catalog;
 
@@ -36,7 +37,7 @@ public class PlexCatalogTests
                 TvShow = "Power Book II: Ghost", Season = 4, Episode = 2
             },
         };
-        var apiResponse = await File.ReadAllTextAsync("Catalog\\mockedPlexResponse.Json");
+        var apiResponse = await File.ReadAllTextAsync("Catalog\\Mocks\\mockedPlexResponse.Json");
         var client = MockHttpRequestHandler.MockResponse(HttpStatusCode.OK, apiResponse);
         var catalog = new PlexCatalog(client);
 

@@ -3,7 +3,7 @@ using System.Text;
 using Moq;
 using Moq.Protected;
 
-namespace MediahubNewsletter.Tests.Catalog;
+namespace MediahubNewsletter.Tests.Catalog.Mocks;
 
 public class MockHttpRequestHandler {
 
