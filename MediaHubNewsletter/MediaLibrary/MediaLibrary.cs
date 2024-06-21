@@ -11,11 +11,11 @@ public class MediaLibrary
         _catalog = catalog;
     }
 
-    public async Task<List<Media>> RecentlyAddedMedia()
+    public async Task<IEnumerable<IMedia>> RecentlyAddedMedia()
     {
         var medias = await _catalog.Medias();
-        return medias.Where(MediaIsFromToday).ToList();
+        return medias.Where(MediaIsFromToday);
     }
 
-    private static bool MediaIsFromToday(Media media) => media.AddedAt == DateTime.Today;
+    private static bool MediaIsFromToday(IMedia media) => media.AddedAt == DateTime.Today;
 }

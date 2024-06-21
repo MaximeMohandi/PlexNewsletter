@@ -1,4 +1,5 @@
-﻿using System.Net.Http.Headers;
+﻿using System.Collections;
+using System.Net.Http.Headers;
 using System.Text.Json;
 using MediahubNewsletter.MediaLibrary;
 
@@ -16,7 +17,7 @@ public class PlexCatalog : ICatalog
         _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
     }
 
-    public async Task<List<Media>> Medias()
+    public async Task<IEnumerable<IMedia>> Medias()
     {
         var plexRecentlyAddedMediaUri = new Uri($"{PlexUrl}/library/recentlyAdded?X-Plex-Token={PlexToken}");
         var response = await _client.GetAsync(plexRecentlyAddedMediaUri);

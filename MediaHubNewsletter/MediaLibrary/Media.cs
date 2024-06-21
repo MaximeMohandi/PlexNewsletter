@@ -1,6 +1,6 @@
 ﻿namespace MediahubNewsletter.MediaLibrary;
 
-public record Media
+public record Media : IMedia
 {
     public string Title { get; init; } = string.Empty;
     public string Type { get; init; } = string.Empty;

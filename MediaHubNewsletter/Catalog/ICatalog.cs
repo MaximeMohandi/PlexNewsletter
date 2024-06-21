@@ -1,8 +1,9 @@
-﻿using MediahubNewsletter.MediaLibrary;
+﻿using System.Collections;
+using MediahubNewsletter.MediaLibrary;
 
 namespace MediahubNewsletter.Catalog;
 
 public interface ICatalog
 {
-    Task<List<Media>> Medias();
+    Task<IEnumerable<IMedia>> Medias();
 }

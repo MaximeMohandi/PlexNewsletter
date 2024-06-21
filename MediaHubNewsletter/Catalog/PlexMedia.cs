@@ -1,8 +1,9 @@
 ﻿using System.Text.Json.Serialization;
+using MediahubNewsletter.MediaLibrary;
 
 namespace MediahubNewsletter.Catalog;
 
-public record PlexMedia()
+public record PlexMedia: IMedia
 {
     [JsonPropertyName("title")]
     public string Title { get; init; }
@@ -25,5 +26,9 @@ public record PlexMedia()
     [JsonPropertyName("index")]
     public int Episode { get; init; }
 
-    public DateTime AddedAt => DateTimeOffset.FromUnixTimeSeconds(AddedAtTimeStamp).DateTime;
+    public DateTime AddedAt
+    {
+        get => DateTimeOffset.FromUnixTimeSeconds(AddedAtTimeStamp).DateTime;
+        init {}
+    }
 };
