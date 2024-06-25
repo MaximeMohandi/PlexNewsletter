@@ -73,4 +73,17 @@ public class PlexCatalogTests
 
         CollectionAssert.AreEqual(expected, result);
     }
+
+    [Test]
+    public async Task ShouldReturnEmptyWhenNoMedia()
+    {
+        var apiResponse = await File.ReadAllTextAsync("Catalog\\Mocks\\mockedPlexResponseWithNoMedia.Json");
+        var client = MockHttpRequestHandler.MockResponse(HttpStatusCode.OK, apiResponse);
+        var catalog = new PlexCatalog(client);
+
+        var result = await catalog.Medias();
+
+        CollectionAssert.AreEqual(Array.Empty<IMedia>(), result);
+    }
+
 }

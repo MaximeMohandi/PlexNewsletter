@@ -30,6 +30,8 @@ public class PlexCatalog : ICatalog
         var metadataJson = root.GetProperty("MediaContainer").GetProperty("Metadata").GetRawText();
         var plexMedias = JsonSerializer.Deserialize<List<PlexMedia>>(metadataJson);
 
+
+
         return plexMedias.Select(plexMedia => new PlexMedia()
         {
             Title = plexMedia.Title,
