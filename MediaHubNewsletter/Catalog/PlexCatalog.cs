@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Net.Http.Headers;
+﻿using System.Net.Http.Headers;
 using System.Text.Json;
 using MediahubNewsletter.MediaLibrary;
 
@@ -24,14 +23,14 @@ public class PlexCatalog : ICatalog
         return ParsePlexMedia(await response.Content.ReadAsStringAsync());
     }
 
-    private static List<Media> ParsePlexMedia(string plexCatalog)
+    private static IEnumerable<PlexMedia> ParsePlexMedia(string plexCatalog)
     {
         var plexCatalogJson = JsonDocument.Parse(plexCatalog);
         var root = plexCatalogJson.RootElement;
         var metadataJson = root.GetProperty("MediaContainer").GetProperty("Metadata").GetRawText();
         var plexMedias = JsonSerializer.Deserialize<List<PlexMedia>>(metadataJson);
 
-        return plexMedias.Select(plexMedia => new Media
+        return plexMedias.Select(plexMedia => new PlexMedia()
         {
             Title = plexMedia.Title,
             Type = plexMedia.Type =="movie" ? "movie" : "show",
@@ -40,6 +39,6 @@ public class PlexCatalog : ICatalog
             Season = plexMedia.Season,
             TvShow = plexMedia.TvShow,
             Episode = plexMedia.Episode
-        }).ToList();
+        });
     }
 }
