@@ -29,7 +29,7 @@ public class MediaLibraryTest
                 Summary = "A Mandalorian bounty hunter tracks a target for a well-paying client.", Title = "Chapter 1"
             }
         };
-        var catalogMedias = FakeMedia.GetFakeMedias();
+        var catalogMedias = FakeMedia.GetMoviesAndShowsWithSomeFromToday();
         var catalog = new Mock<ICatalog>();
         catalog.Setup(c => c.Medias()).ReturnsAsync(catalogMedias);
         var mediaLibrary = new MediahubNewsletter.MediaLibrary.MediaLibrary(catalog.Object);
@@ -37,5 +37,18 @@ public class MediaLibraryTest
         var result = await mediaLibrary.RecentlyAddedMedia();
 
         CollectionAssert.AreEqual(expected, result);
+    }
+
+    [Test]
+    public async Task ShouldBeEmptyWhenNoMediaFromToday()
+    {
+        var catalogMedias = FakeMedia.GetMoviesAndShowsWithNoneFromToday();
+        var catalog = new Mock<ICatalog>();
+        catalog.Setup(c => c.Medias()).ReturnsAsync(catalogMedias);
+        var mediaLibrary = new MediahubNewsletter.MediaLibrary.MediaLibrary(catalog.Object);
+
+        var result = await mediaLibrary.RecentlyAddedMedia();
+
+        CollectionAssert.AreEqual(Array.Empty<IMedia>(), result);
     }
 }
