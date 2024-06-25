@@ -1,0 +1,334 @@
+﻿{
+  "MediaContainer": {
+    "size": 50,
+    "allowSync": false,
+    "identifier": "com.plexapp.plugins.library",
+    "mediaTagPrefix": "/system/bundle/media/flags/",
+    "mediaTagVersion": 1717691851,
+    "mixedParents": true,
+    "Metadata": [
+      {
+        "allowSync": true,
+        "librarySectionID": 1,
+        "librarySectionTitle": "Movies",
+        "librarySectionUUID": "2ff98915-ebb0-40b3-baab-47b46e9c6df2",
+        "ratingKey": "10138",
+        "key": "/library/metadata/10138",
+        "guid": "plex://movie/5d776a3496b655001fde6841",
+        "slug": "sharknado",
+        "studio": "Syfy",
+        "type": "invalid type in purpose",
+        "title": "Sharknado",
+        "contentRating": "R",
+        "summary": "A freak hurricane hits Los Angeles, causing man-eating sharks to be scooped up in tornadoes and flooding the city with shark-infested seawater. Surfer and bar-owner Fin sets out with his friends Baz and Nova to rescue his estranged wife April and teenage daughter Claudia.",
+        "audienceRating": 3.3,
+        "year": 2013,
+        "tagline": "Enough said!",
+        "thumb": "/library/metadata/10138/thumb/1718052144",
+        "art": "/library/metadata/10138/art/1718052144",
+        "duration": 5236940,
+        "originallyAvailableAt": "2013-02-05",
+        "addedAt": 1718052141,
+        "updatedAt": 1718052144,
+        "audienceRatingImage": "imdb://image.rating",
+        "primaryExtraKey": "/library/metadata/10139",
+        "Media": [
+          {
+            "id": 18843,
+            "duration": 5236940,
+            "bitrate": 2022,
+            "width": 1920,
+            "height": 1080,
+            "aspectRatio": 1.78,
+            "audioChannels": 2,
+            "audioCodec": "aac",
+            "videoCodec": "h264",
+            "videoResolution": "1080",
+            "container": "mp4",
+            "videoFrameRate": "24p",
+            "optimizedForStreaming": 1,
+            "audioProfile": "lc",
+            "has64bitOffsets": false,
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 20002,
+                "key": "/library/parts/20002/1718052144/file.mp4",
+                "duration": 5236940,
+                "file": "/data/Movies/Sharknado (2013)/Sharknado (2013).mp4",
+                "size": 1326187346,
+                "audioProfile": "lc",
+                "container": "mp4",
+                "has64bitOffsets": false,
+                "optimizedForStreaming": true,
+                "videoProfile": "high"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Horror"
+          },
+          {
+            "tag": "Comedy"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "United States of America"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Anthony C. Ferrante"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "Thunder Levin"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Ian Ziering"
+          },
+          {
+            "tag": "Tara Reid"
+          },
+          {
+            "tag": "John Heard"
+          }
+        ]
+      },
+      {
+        "allowSync": true,
+        "librarySectionID": 1,
+        "librarySectionTitle": "Movies",
+        "librarySectionUUID": "2ff98915-ebb0-40b3-baab-47b46e9c6df2",
+        "ratingKey": "10102",
+        "key": "/library/metadata/10102",
+        "guid": "plex://movie/5d77697d47dd6e001f6c6178",
+        "slug": "the-hobbit-the-battle-of-the-five-armies",
+        "studio": "New Line Cinema",
+        "type": "",
+        "title": "The Hobbit: The Battle of the Five Armies",
+        "titleSort": "Hobbit: The Battle of the Five Armies",
+        "contentRating": "PG-13",
+        "summary": "After the Dragon leaves the Lonely Mountain, the people of Lake-town see a threat coming. Orcs, dwarves, elves and people prepare for war. Bilbo sees Thorin going mad and tries to help. Meanwhile, Gandalf is rescued from the Necromancer's prison and his rescuers realize who the Necromancer is.",
+        "audienceRating": 7.4,
+        "year": 2014,
+        "tagline": "Witness the defining chapter of the Middle-Earth saga",
+        "thumb": "/library/metadata/10102/thumb/1717891283",
+        "art": "/library/metadata/10102/art/1717891283",
+        "duration": 9843840,
+        "originallyAvailableAt": "2014-12-10",
+        "addedAt": 1717865639,
+        "updatedAt": 1717891283,
+        "audienceRatingImage": "imdb://image.rating",
+        "chapterSource": "media",
+        "primaryExtraKey": "/library/metadata/10103",
+        "Media": [
+          {
+            "id": 18744,
+            "duration": 9843840,
+            "bitrate": 17703,
+            "width": 3840,
+            "height": 1608,
+            "aspectRatio": 2.35,
+            "audioChannels": 6,
+            "audioCodec": "eac3",
+            "videoCodec": "hevc",
+            "videoResolution": "4k",
+            "container": "mkv",
+            "videoFrameRate": "24p",
+            "videoProfile": "main 10",
+            "Part": [
+              {
+                "id": 19903,
+                "key": "/library/parts/19903/1717865823/file.mkv",
+                "duration": 9843840,
+                "file": "/data/Movies/The Hobbit The Battle of the Five Armies (2014)/The Hobbit The Battle of the Five Armies (2014).mkv",
+                "size": 21790619826,
+                "container": "mkv",
+                "videoProfile": "main 10"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Adventure"
+          },
+          {
+            "tag": "Action"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "New Zealand"
+          },
+          {
+            "tag": "United States of America"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Peter Jackson"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "J.R.R. Tolkien"
+          },
+          {
+            "tag": "Guillermo del Toro"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Ian McKellen"
+          },
+          {
+            "tag": "Martin Freeman"
+          },
+          {
+            "tag": "Richard Armitage"
+          }
+        ]
+      },
+      {
+        "ratingKey": "10152",
+        "key": "/library/metadata/10152",
+        "parentRatingKey": "8798",
+        "grandparentRatingKey": "8797",
+        "guid": "plex://episode/66091f7eafe956bb2d0a10ba",
+        "parentGuid": "plex://season/64a16db63faf4de70ee9f405",
+        "grandparentGuid": "plex://show/5d9c081702391c001f580ca4",
+        "grandparentSlug": "my-hero-academia",
+        "type": "episode",
+        "title": "Inflation",
+        "grandparentKey": "/library/metadata/8797",
+        "parentKey": "/library/metadata/8798",
+        "grandparentTitle": "My Hero Academia",
+        "parentTitle": "Season 7",
+        "originalTitle": "INFLATION",
+        "contentRating": "TV-14",
+        "summary": "",
+        "index": 7,
+        "parentIndex": 7,
+        "year": 2024,
+        "thumb": "/library/metadata/10152/thumb/1718444426",
+        "art": "/library/metadata/8797/art/1718325301",
+        "parentThumb": "/library/metadata/8798/thumb/1717248344",
+        "grandparentThumb": "/library/metadata/8797/thumb/1718325301",
+        "grandparentArt": "/library/metadata/8797/art/1718325301",
+        "grandparentTheme": "/library/metadata/8797/theme/1718325301",
+        "duration": 1430070,
+        "originallyAvailableAt": "2024-06-15",
+        "addedAt": 1718444424,
+        "updatedAt": 1718444426,
+        "Media": [
+          {
+            "id": 18865,
+            "duration": 1430070,
+            "bitrate": 8165,
+            "width": 1920,
+            "height": 1080,
+            "aspectRatio": 1.78,
+            "audioChannels": 2,
+            "audioCodec": "aac",
+            "videoCodec": "h264",
+            "videoResolution": "1080",
+            "container": "mkv",
+            "videoFrameRate": "24p",
+            "audioProfile": "lc",
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 20024,
+                "key": "/library/parts/20024/1718444417/file.mkv",
+                "duration": 1430070,
+                "file": "/data/TV Shows/My Hero Academia/Season 7/My Hero Academia (2016) - S07E07 - 145 - Inflation [HDTV-1080p][8bit][x264][AAC 2.0][JA]-SubsPlease.mkv",
+                "size": 1459540418,
+                "audioProfile": "lc",
+                "container": "mkv",
+                "videoProfile": "high"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "ratingKey": "10151",
+        "key": "/library/metadata/10151",
+        "parentRatingKey": "10131",
+        "grandparentRatingKey": "10130",
+        "guid": "plex://episode/65f449556a72f75dfdf39dec",
+        "parentGuid": "plex://season/65f449556a72f75dfdf39dd1",
+        "grandparentGuid": "plex://show/5e269a8c752e36003dd925a4",
+        "grandparentSlug": "power-book-ii-ghost",
+        "type": "episode",
+        "title": "To Thine Own Self",
+        "grandparentKey": "/library/metadata/10130",
+        "parentKey": "/library/metadata/10131",
+        "grandparentTitle": "Power Book II: Ghost",
+        "parentTitle": "Season 4",
+        "contentRating": "TV-MA",
+        "summary": "Tariq and Brayden struggle to adjust to life as normal, broke college students; Monet wants back into the game and answers about who took shots at her; Noma seeks out an opportunity to expand with the Russians.",
+        "index": 2,
+        "parentIndex": 4,
+        "year": 2024,
+        "thumb": "/library/metadata/10151/thumb/1718386005",
+        "art": "/library/metadata/10130/art/1718418743",
+        "parentThumb": "/library/metadata/10131/thumb/1718003778",
+        "grandparentThumb": "/library/metadata/10130/thumb/1718418743",
+        "grandparentArt": "/library/metadata/10130/art/1718418743",
+        "grandparentTheme": "/library/metadata/10130/theme/1718418743",
+        "duration": 3260464,
+        "originallyAvailableAt": "2024-06-14",
+        "addedAt": 1718386003,
+        "updatedAt": 1718386005,
+        "Media": [
+          {
+            "id": 18864,
+            "duration": 3260464,
+            "bitrate": 9182,
+            "width": 1920,
+            "height": 1080,
+            "aspectRatio": 1.78,
+            "audioChannels": 6,
+            "audioCodec": "eac3",
+            "videoCodec": "h264",
+            "videoResolution": "1080",
+            "container": "mkv",
+            "videoFrameRate": "24p",
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 20023,
+                "key": "/library/parts/20023/1718385997/file.mkv",
+                "duration": 3260464,
+                "file": "/data/TV Shows/Power Book II - Ghost/Season 4/Power Book II - Ghost - 2020 - S04E02 - To Thine Own Self.mkv",
+                "size": 3743059739,
+                "container": "mkv",
+                "videoProfile": "high"
+              }
+            ]
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Michael Rainey Jr."
+          },
+          {
+            "tag": "Shane Johnson"
+          },
+          {
+            "tag": "Mary J. Blige"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -8,7 +8,15 @@ public class PlexMediaTypeJsonConverter: JsonConverter<MediaType>
 {
     public override MediaType Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
-        return reader.GetString()?.ToLower().Equals("movie") is true ? MediaType.Movie : MediaType.TvShow;
+        string[] plexMovieTypes = { "movie" };
+        string[] plexShowTypes = { "episode", "season", "show" };
+        var plexMediaTypes = plexMovieTypes.Concat(plexShowTypes).ToArray();
+
+        var type = reader.GetString()?.ToLower();
+        if (type == string.Empty || !plexMediaTypes.Contains(type))
+            return MediaType.Unknown;
+
+        return plexShowTypes.Contains(type)? MediaType.TvShow : MediaType.Movie;
     }
 
     public override void Write(Utf8JsonWriter writer, MediaType value, JsonSerializerOptions options)

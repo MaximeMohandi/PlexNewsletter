@@ -45,4 +45,32 @@ public class PlexCatalogTests
 
         CollectionAssert.AreEqual(expected, result);
     }
+
+    [Test]
+    public async Task ShouldIgnoreInvalidMediaType()
+    {
+        var expected = new PlexMedia[]
+        {
+            new()
+            {
+                Title = "Inflation", Type = MediaType.TvShow, AddedAt = new DateTime(2024,6,15, hour: 9, minute: 40, second: 24),
+                Summary = "",
+                TvShow = "My Hero Academia", Season = 7, Episode = 7
+
+            },
+            new()
+            {
+                Title = "To Thine Own Self", Type = MediaType.TvShow, AddedAt = new DateTime(2024,6,14, hour: 17, minute: 26, second: 43),
+                Summary = "Tariq and Brayden struggle to adjust to life as normal, broke college students; Monet wants back into the game and answers about who took shots at her; Noma seeks out an opportunity to expand with the Russians.",
+                TvShow = "Power Book II: Ghost", Season = 4, Episode = 2
+            }
+        };
+        var apiResponse = await File.ReadAllTextAsync("Catalog\\Mocks\\mockedPlexResponseWithInvalidMediaType.Json");
+        var client = MockHttpRequestHandler.MockResponse(HttpStatusCode.OK, apiResponse);
+        var catalog = new PlexCatalog(client);
+
+        var result = await catalog.Medias();
+
+        CollectionAssert.AreEqual(expected, result);
+    }
 }

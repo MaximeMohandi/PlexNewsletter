@@ -39,6 +39,6 @@ public class PlexCatalog : ICatalog
             Season = plexMedia.Season,
             TvShow = plexMedia.TvShow,
             Episode = plexMedia.Episode
-        });
+        }).Where(media => media.Type != MediaType.Unknown);
     }
 }
