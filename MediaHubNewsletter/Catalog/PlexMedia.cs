@@ -8,8 +8,9 @@ public record PlexMedia: IMedia
     [JsonPropertyName("title")]
     public string Title { get; init; }
 
+    [JsonConverter(typeof(PlexMediaTypeJsonConverter))]
     [JsonPropertyName("type")]
-    public string Type { get; init; }
+    public MediaType Type { get; init; }
 
     [JsonPropertyName("addedAt")]
     public int AddedAtTimeStamp { get; init; }

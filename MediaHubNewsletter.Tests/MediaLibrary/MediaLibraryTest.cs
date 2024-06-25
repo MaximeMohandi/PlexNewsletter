@@ -19,13 +19,13 @@ public class MediaLibraryTest
         {
             new()
             {
-                Title = "Sharknado", Type = "movie", AddedAt = DateTime.Today,
+                Title = "Sharknado", Type = MediaType.Movie, AddedAt = DateTime.Today,
                 Summary =
                     "A freak hurricane hits Los Angeles, causing man-eating sharks to be scooped up in tornadoes and flooding the city with shark-infested seawater. Surfer and bar-owner Fin sets out with his friends Baz and Nova to rescue his estranged wife April and teenage daughter Claudia."
             },
             new()
             {
-                TvShow = "The Mandalorian", Season = 1, Episode = 2, Type = "tv show", AddedAt = DateTime.Today,
+                TvShow = "The Mandalorian", Season = 1, Episode = 2, Type = MediaType.TvShow, AddedAt = DateTime.Today,
                 Summary = "A Mandalorian bounty hunter tracks a target for a well-paying client.", Title = "Chapter 1"
             }
         };

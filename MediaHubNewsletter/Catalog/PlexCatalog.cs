@@ -33,7 +33,7 @@ public class PlexCatalog : ICatalog
         return plexMedias.Select(plexMedia => new PlexMedia()
         {
             Title = plexMedia.Title,
-            Type = plexMedia.Type =="movie" ? "movie" : "show",
+            Type = plexMedia.Type,
             AddedAt = plexMedia.AddedAt,
             Summary = plexMedia.Summary,
             Season = plexMedia.Season,
