@@ -1,9 +1,9 @@
 ﻿using FluentAssertions;
 using MediahubNewsletter.MediaLibrary;
-using MediahubNewsletter.NewsletterDistribution;
+using MediahubNewsletter.Newsletter.Discord;
 using MediahubNewsletter.Tests.MediaLibrary.Mocks;
 
-namespace MediahubNewsletter.Tests.NewsletterDistribution;
+namespace MediahubNewsletter.Tests.Newsletter.Discord;
 
 public class DiscordDistributionTest
 {

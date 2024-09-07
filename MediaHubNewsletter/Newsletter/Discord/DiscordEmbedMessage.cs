@@ -1,4 +1,4 @@
-﻿namespace MediahubNewsletter.NewsletterDistribution;
+﻿namespace MediahubNewsletter.Newsletter.Discord;
 
 public record DiscordEmbedMessage(IEnumerable<DiscordEmbedField> MovieFields, IEnumerable<DiscordEmbedField> TvShowFields)
 {

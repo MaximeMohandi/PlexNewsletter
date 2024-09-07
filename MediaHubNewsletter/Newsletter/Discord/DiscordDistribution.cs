@@ -1,6 +1,6 @@
 ﻿using MediahubNewsletter.MediaLibrary;
 
-namespace MediahubNewsletter.NewsletterDistribution;
+namespace MediahubNewsletter.Newsletter.Discord;
 
 public class DiscordDistribution
 {
