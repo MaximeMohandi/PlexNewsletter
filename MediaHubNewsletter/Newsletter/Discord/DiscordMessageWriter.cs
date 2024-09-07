@@ -2,7 +2,7 @@
 
 namespace MediahubNewsletter.Newsletter.Discord;
 
-public class DiscordMessageWriter
+public static class DiscordMessageWriter
 {
     public static DiscordMessage Write(IEnumerable<IMedia> media)
     {
@@ -12,7 +12,7 @@ public class DiscordMessageWriter
 
         var tvShowFields = media
             .Where(m => m.Type == MediaType.TvShow)
-            .Select(m => new DiscordEmbedField($"**{m.TvShow}** - S{WriteEpisodeToStandard(m.Season)}E{WriteEpisodeToStandard(m.Episode)}", m.Summary));
+            .Select(m => new DiscordEmbedField($"**{m.TvShow}** - S{FormatToSxxEyy(m.Season)}E{FormatToSxxEyy(m.Episode)}", m.Summary));
 
         return new DiscordMessage(new List<DiscordEmbedMessage>
         {
@@ -21,8 +21,5 @@ public class DiscordMessageWriter
         });
     }
 
-    private static string WriteEpisodeToStandard(int episode)
-    {
-        return episode <= 9 ? $"0{episode}" : episode.ToString();
-    }
+    private static string FormatToSxxEyy(int number) => number <= 9 ? $"0{number}" : number.ToString();
 }
