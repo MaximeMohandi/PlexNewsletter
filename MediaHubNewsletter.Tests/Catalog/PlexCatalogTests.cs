@@ -2,11 +2,24 @@
 using MediahubNewsletter.Catalog;
 using MediahubNewsletter.MediaLibrary;
 using MediahubNewsletter.Tests.Catalog.Mocks;
+using Microsoft.Extensions.Configuration;
+using Moq;
 
 namespace MediahubNewsletter.Tests.Catalog;
 
 public class PlexCatalogTests
 {
+
+    private Mock<IConfiguration> _configuration;
+
+    [SetUp]
+    public void Setup()
+    {
+        _configuration = new Mock<IConfiguration>();
+        _configuration.Setup(x => x["PlexClient:url"]).Returns("http://localhost:32400");
+        _configuration.Setup(x => x["PlexClient:token"]).Returns("token");
+    }
+
     [Test]
     public async Task ShouldFetchPlexCatalog()
     {
@@ -39,7 +52,8 @@ public class PlexCatalogTests
         };
         var apiResponse = await File.ReadAllTextAsync("Catalog\\Mocks\\mockedPlexResponse.Json");
         var client = MockHttpRequestHandler.MockResponse(HttpStatusCode.OK, apiResponse);
-        var catalog = new PlexCatalog(client);
+
+        var catalog = new PlexCatalog(client, _configuration.Object);
 
         var result = await catalog.Medias();
 
@@ -67,7 +81,7 @@ public class PlexCatalogTests
         };
         var apiResponse = await File.ReadAllTextAsync("Catalog\\Mocks\\mockedPlexResponseWithInvalidMediaType.Json");
         var client = MockHttpRequestHandler.MockResponse(HttpStatusCode.OK, apiResponse);
-        var catalog = new PlexCatalog(client);
+        var catalog = new PlexCatalog(client, _configuration.Object);
 
         var result = await catalog.Medias();
 
@@ -79,7 +93,7 @@ public class PlexCatalogTests
     {
         var apiResponse = await File.ReadAllTextAsync("Catalog\\Mocks\\mockedPlexResponseWithNoMedia.Json");
         var client = MockHttpRequestHandler.MockResponse(HttpStatusCode.OK, apiResponse);
-        var catalog = new PlexCatalog(client);
+        var catalog = new PlexCatalog(client, _configuration.Object);
 
         var result = await catalog.Medias();
 

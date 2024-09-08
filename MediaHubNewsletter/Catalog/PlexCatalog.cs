@@ -7,18 +7,20 @@ namespace MediahubNewsletter.Catalog;
 public class PlexCatalog : ICatalog
 {
     private readonly HttpClient _client;
-    private const string PlexUrl = "http://localhost:32400";
-    private const string PlexToken = "token";
+    private readonly string _plexUrl;
+    private readonly string _plexToken;
 
-    public PlexCatalog()
+    public PlexCatalog(HttpClient client, IConfiguration configuration)
     {
-        _client = new HttpClient();
+        _client = client;
         _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        _plexUrl = configuration["PlexClient:url"];
+        _plexToken = configuration["PlexClient:token"];
     }
 
     public async Task<IEnumerable<IMedia>> Medias()
     {
-        var plexRecentlyAddedMediaUri = new Uri($"{PlexUrl}/library/recentlyAdded?X-Plex-Token={PlexToken}");
+        var plexRecentlyAddedMediaUri = new Uri($"{_plexUrl}/library/recentlyAdded?X-Plex-Token={_plexToken}");
         var response = await _client.GetAsync(plexRecentlyAddedMediaUri);
         return ParsePlexMedia(await response.Content.ReadAsStringAsync());
     }
