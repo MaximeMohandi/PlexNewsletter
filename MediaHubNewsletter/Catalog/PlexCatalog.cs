@@ -10,9 +10,9 @@ public class PlexCatalog : ICatalog
     private const string PlexUrl = "http://localhost:32400";
     private const string PlexToken = "token";
 
-    public PlexCatalog(HttpClient client)
+    public PlexCatalog()
     {
-        _client = client;
+        _client = new HttpClient();
         _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
     }
 

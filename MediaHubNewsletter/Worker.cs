@@ -1,12 +1,18 @@
+using MediahubNewsletter.MediaLibrary;
+using MediahubNewsletter.Newsletter.Discord;
+using PlexNewsletter.Newsletter;
+
 namespace PlexNewsletter;
 
 public class Worker : BackgroundService
 {
     private readonly ILogger<Worker> _logger;
+    private readonly IDistributionCanal _distribution;
 
-    public Worker(ILogger<Worker> logger)
+    public Worker(ILogger<Worker> logger, IDistributionCanal distribution)
     {
         _logger = logger;
+        _distribution = distribution;
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -14,7 +20,8 @@ public class Worker : BackgroundService
         while (!stoppingToken.IsCancellationRequested)
         {
             _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
-            await Task.Delay(1000, stoppingToken);
+            await _distribution.Send();
+            await Task.Delay(100000, stoppingToken);
         }
     }
 }

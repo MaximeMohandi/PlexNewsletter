@@ -2,7 +2,7 @@
 
 namespace MediahubNewsletter.MediaLibrary;
 
-public class MediaLibrary
+public class MediaLibrary : IMediaLibrary
 {
     private readonly ICatalog _catalog;
 

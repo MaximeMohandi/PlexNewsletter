@@ -2,7 +2,7 @@
 
 public record DiscordMessage(IEnumerable<DiscordEmbedMessage> Embeds)
 {
-    private string Content { get; } = "📢 **Nouveaux médias ajoutés !** 🎬📺";
-    private string Tts { get; } = "false";
-    private string Username { get; } = "MediaHub Newsletter";
+    public string Content { get; init; } = "📢 **Nouveaux médias ajoutés !** 🎬📺";
+    public string Tts { get; init; } = "false";
+    public string Username { get; init; } = "MediaHub Newsletter";
 }
