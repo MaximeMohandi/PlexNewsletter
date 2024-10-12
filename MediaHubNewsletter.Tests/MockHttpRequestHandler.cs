@@ -3,9 +3,9 @@ using System.Text;
 using Moq;
 using Moq.Protected;
 
-namespace MediahubNewsletter.Tests.Catalog.Mocks;
+namespace MediahubNewsletter.Tests;
 
-public class MockHttpRequestHandler {
+public static class MockHttpRequestHandler {
 
     public static HttpClient MockResponse(HttpStatusCode responseCode, string responseContent)
     {

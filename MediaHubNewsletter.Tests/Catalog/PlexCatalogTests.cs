@@ -1,7 +1,6 @@
 ﻿using System.Net;
 using MediahubNewsletter.Catalog;
 using MediahubNewsletter.MediaLibrary;
-using MediahubNewsletter.Tests.Catalog.Mocks;
 using Microsoft.Extensions.Configuration;
 using Moq;
 

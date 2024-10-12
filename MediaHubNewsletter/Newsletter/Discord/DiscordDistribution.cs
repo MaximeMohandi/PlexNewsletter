@@ -9,9 +9,11 @@ public class DiscordDistribution : IDistributionCanal
 {
    private readonly IMediaLibrary _mediaLibrary;
    private readonly string? _discordWebhook;
+   private readonly HttpClient _client;
 
-   public DiscordDistribution(IMediaLibrary mediaLibrary, IConfiguration configuration)
+   public DiscordDistribution(IMediaLibrary mediaLibrary, HttpClient client, IConfiguration configuration)
    {
+        _client = client;
         _mediaLibrary = mediaLibrary;
         _discordWebhook = configuration["DiscordClient:webhookUrl"];
    }
@@ -21,7 +23,6 @@ public class DiscordDistribution : IDistributionCanal
        var message = DiscordMessageWriter.Write(await _mediaLibrary.RecentlyAddedMedia());
        var json = JsonSerializer.Serialize(message);
        var content = new StringContent(json, Encoding.UTF8, "application/json");
-        using var _httpClient = new HttpClient();
-       await _httpClient.PostAsync(_discordWebhook, content);
+       await _client.PostAsync(_discordWebhook, content);
    }
 }
