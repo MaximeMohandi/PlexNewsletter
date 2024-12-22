@@ -1,7 +1,6 @@
 ﻿using System.Text;
 using System.Text.Json;
 using MediahubNewsletter.MediaLibrary;
-using PlexNewsletter.Newsletter;
 
 namespace MediahubNewsletter.Newsletter.Discord;
 

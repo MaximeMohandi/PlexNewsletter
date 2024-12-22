@@ -7,8 +7,8 @@ namespace MediahubNewsletter.Catalog;
 public class PlexCatalog : ICatalog
 {
     private readonly HttpClient _client;
-    private readonly string _plexUrl;
     private readonly string _plexToken;
+    private readonly string _plexUrl;
 
     public PlexCatalog(HttpClient client, IConfiguration configuration)
     {
@@ -33,8 +33,7 @@ public class PlexCatalog : ICatalog
         var plexMedias = JsonSerializer.Deserialize<List<PlexMedia>>(metadataJson);
 
 
-
-        return plexMedias.Select(plexMedia => new PlexMedia()
+        return plexMedias.Select(plexMedia => new PlexMedia
         {
             Title = plexMedia.Title,
             Type = plexMedia.Type,

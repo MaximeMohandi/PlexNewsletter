@@ -2,7 +2,7 @@
 
 public enum MediaType
 {
-   Unknown,
-   Movie,
-   TvShow
+    Unknown,
+    Movie,
+    TvShow
 }

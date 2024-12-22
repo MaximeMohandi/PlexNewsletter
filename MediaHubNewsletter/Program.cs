@@ -1,10 +1,10 @@
+using MediahubNewsletter;
 using MediahubNewsletter.Catalog;
 using MediahubNewsletter.MediaLibrary;
+using MediahubNewsletter.Newsletter;
 using MediahubNewsletter.Newsletter.Discord;
-using PlexNewsletter;
-using PlexNewsletter.Newsletter;
 
-IHost host = Host.CreateDefaultBuilder(args)
+var host = Host.CreateDefaultBuilder(args)
     .ConfigureServices(services =>
     {
         services.AddHostedService<Worker>();

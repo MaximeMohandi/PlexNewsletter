@@ -17,5 +17,8 @@ public class MediaLibrary : IMediaLibrary
         return medias.Where(MediaIsFromToday);
     }
 
-    private static bool MediaIsFromToday(IMedia media) => media.AddedAt == DateTime.Today;
+    private static bool MediaIsFromToday(IMedia media)
+    {
+        return media.AddedAt == DateTime.Today;
+    }
 }

@@ -1,4 +1,4 @@
-﻿namespace PlexNewsletter.Newsletter;
+﻿namespace MediahubNewsletter.Newsletter;
 
 public interface IDistributionCanal
 {

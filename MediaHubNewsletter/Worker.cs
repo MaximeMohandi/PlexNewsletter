@@ -1,13 +1,11 @@
-using MediahubNewsletter.MediaLibrary;
-using MediahubNewsletter.Newsletter.Discord;
-using PlexNewsletter.Newsletter;
+using MediahubNewsletter.Newsletter;
 
-namespace PlexNewsletter;
+namespace MediahubNewsletter;
 
 public class Worker : BackgroundService
 {
-    private readonly ILogger<Worker> _logger;
     private readonly IDistributionCanal _distribution;
+    private readonly ILogger<Worker> _logger;
 
     public Worker(ILogger<Worker> logger, IDistributionCanal distribution)
     {

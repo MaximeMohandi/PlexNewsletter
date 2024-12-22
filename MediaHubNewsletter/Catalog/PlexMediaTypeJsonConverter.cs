@@ -4,7 +4,7 @@ using MediahubNewsletter.MediaLibrary;
 
 namespace MediahubNewsletter.Catalog;
 
-public class PlexMediaTypeJsonConverter: JsonConverter<MediaType>
+public class PlexMediaTypeJsonConverter : JsonConverter<MediaType>
 {
     public override MediaType Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
@@ -16,7 +16,7 @@ public class PlexMediaTypeJsonConverter: JsonConverter<MediaType>
         if (type == string.Empty || !plexMediaTypes.Contains(type))
             return MediaType.Unknown;
 
-        return plexShowTypes.Contains(type)? MediaType.TvShow : MediaType.Movie;
+        return plexShowTypes.Contains(type) ? MediaType.TvShow : MediaType.Movie;
     }
 
     public override void Write(Utf8JsonWriter writer, MediaType value, JsonSerializerOptions options)

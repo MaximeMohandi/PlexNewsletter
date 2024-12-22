@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using MediahubNewsletter.MediaLibrary;
+﻿using MediahubNewsletter.MediaLibrary;
 
 namespace MediahubNewsletter.Catalog;
 

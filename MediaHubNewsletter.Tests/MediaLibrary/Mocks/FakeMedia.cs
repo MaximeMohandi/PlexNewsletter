@@ -2,7 +2,7 @@
 
 namespace MediahubNewsletter.Tests.MediaLibrary.Mocks;
 
-public record FakeMedia: IMedia
+public record FakeMedia : IMedia
 {
     public string Title { get; init; }
     public MediaType Type { get; init; }
@@ -24,8 +24,10 @@ public record FakeMedia: IMedia
             },
             new()
             {
-                Title = "The Hobbit: The Battle of the Five Armies", Type = MediaType.Movie, AddedAt = DateTime.Today.AddDays(-1),
-                Summary = "After the Dragon leaves the Lonely Mountain, the people of Lake-town see a threat coming. Orcs, dwarves, elves and people prepare for war. Bilbo sees Thorin going mad and tries to help. Meanwhile, Gandalf is rescued from the Necromancer's prison and his rescuers realize who the Necromancer is.",
+                Title = "The Hobbit: The Battle of the Five Armies", Type = MediaType.Movie,
+                AddedAt = DateTime.Today.AddDays(-1),
+                Summary =
+                    "After the Dragon leaves the Lonely Mountain, the people of Lake-town see a threat coming. Orcs, dwarves, elves and people prepare for war. Bilbo sees Thorin going mad and tries to help. Meanwhile, Gandalf is rescued from the Necromancer's prison and his rescuers realize who the Necromancer is."
             },
             new()
             {
@@ -50,11 +52,12 @@ public record FakeMedia: IMedia
                 Title = "The Hobbit: The Battle of the Five Armies", Type = MediaType.Movie,
                 AddedAt = DateTime.Today.AddDays(-1),
                 Summary =
-                    "After the Dragon leaves the Lonely Mountain, the people of Lake-town see a threat coming. Orcs, dwarves, elves and people prepare for war. Bilbo sees Thorin going mad and tries to help. Meanwhile, Gandalf is rescued from the Necromancer's prison and his rescuers realize who the Necromancer is.",
+                    "After the Dragon leaves the Lonely Mountain, the people of Lake-town see a threat coming. Orcs, dwarves, elves and people prepare for war. Bilbo sees Thorin going mad and tries to help. Meanwhile, Gandalf is rescued from the Necromancer's prison and his rescuers realize who the Necromancer is."
             },
             new()
             {
-                TvShow = "The Mandalorian", Season = 1, Episode = 2, Type = MediaType.TvShow, AddedAt = DateTime.Today.AddDays(-1),
+                TvShow = "The Mandalorian", Season = 1, Episode = 2, Type = MediaType.TvShow,
+                AddedAt = DateTime.Today.AddDays(-1),
                 Summary = "A Mandalorian bounty hunter tracks a target for a well-paying client.", Title = "Chapter 1"
             }
         };

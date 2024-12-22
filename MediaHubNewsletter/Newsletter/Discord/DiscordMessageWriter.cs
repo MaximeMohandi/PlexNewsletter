@@ -13,10 +13,14 @@ public static class DiscordMessageWriter
         });
     }
 
-    private static string FormatToSxxEyy(int number) => number <= 9 ? $"0{number}" : number.ToString();
+    private static string FormatToSxxEyy(int number)
+    {
+        return number <= 9 ? $"0{number}" : number.ToString();
+    }
 
-    private static DiscordEmbedMessage WriteTvShowToDiscord(this IEnumerable<IMedia> medias) =>
-        new ("**\ud83d\udcfa Séries :**", medias
+    private static DiscordEmbedMessage WriteTvShowToDiscord(this IEnumerable<IMedia> medias)
+    {
+        return new DiscordEmbedMessage("**\ud83d\udcfa Séries :**", medias
             .Where(m => m.Type == MediaType.TvShow)
             .GroupBy(m => m.TvShow)
             .Select(shows => shows
@@ -26,7 +30,6 @@ public static class DiscordMessageWriter
                     var firstEpisode = season.First();
                     if (season.Count() > 1)
                     {
-
                         var lastEpisode = season.Last();
                         return new DiscordEmbedField(
                             $"**{firstEpisode.TvShow}** - S{FormatToSxxEyy(firstEpisode.Season)}E{FormatToSxxEyy(firstEpisode.Episode)}-{FormatToSxxEyy(lastEpisode.Episode)}",
@@ -38,9 +41,12 @@ public static class DiscordMessageWriter
                         firstEpisode.Summary);
                 }))
             .SelectMany(x => x));
+    }
 
-    private static DiscordEmbedMessage WriteMovieToDiscord(this IEnumerable<IMedia> medias) =>
-        new("**\ud83c\udfa5 Films :**",medias
-        .Where(m => m.Type == MediaType.Movie)
-        .Select(m => new DiscordEmbedField($"**{m.Title}**", m.Summary)));
+    private static DiscordEmbedMessage WriteMovieToDiscord(this IEnumerable<IMedia> medias)
+    {
+        return new DiscordEmbedMessage("**\ud83c\udfa5 Films :**", medias
+            .Where(m => m.Type == MediaType.Movie)
+            .Select(m => new DiscordEmbedField($"**{m.Title}**", m.Summary)));
+    }
 }

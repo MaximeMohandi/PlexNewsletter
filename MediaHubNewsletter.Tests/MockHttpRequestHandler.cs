@@ -5,8 +5,8 @@ using Moq.Protected;
 
 namespace MediahubNewsletter.Tests;
 
-public static class MockHttpRequestHandler {
-
+public static class MockHttpRequestHandler
+{
     public static HttpClient MockResponse(HttpStatusCode responseCode, string responseContent)
     {
         var mockHttpMessageHandler = new Mock<HttpMessageHandler>();
