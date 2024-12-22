@@ -5,7 +5,7 @@ namespace MediahubNewsletter.Catalog;
 
 public record PlexMedia : IMedia
 {
-    [JsonPropertyName("addedAt")] public int AddedAtTimeStamp { get; init; }
+    [JsonPropertyName("addedAt")] public long AddedAtTimeStamp { get; init; }
 
     [JsonPropertyName("title")] public string Title { get; init; }
 
