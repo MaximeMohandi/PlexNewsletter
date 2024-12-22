@@ -21,9 +21,5 @@ public record PlexMedia : IMedia
 
     [JsonPropertyName("index")] public int Episode { get; init; }
 
-    public DateTime AddedAt
-    {
-        get => DateTimeOffset.FromUnixTimeSeconds(AddedAtTimeStamp).DateTime;
-        init { }
-    }
+    public DateTime AddedAt => DateTimeOffset.FromUnixTimeSeconds(AddedAtTimeStamp).DateTime;
 }

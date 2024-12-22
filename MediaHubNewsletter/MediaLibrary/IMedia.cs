@@ -4,7 +4,7 @@ public interface IMedia
 {
     string Title { get; init; }
     MediaType Type { get; init; }
-    DateTime AddedAt { get; init; }
+    DateTime AddedAt { get; }
     string Summary { get; init; }
     int Season { get; init; }
     string TvShow { get; init; }

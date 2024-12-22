@@ -33,15 +33,6 @@ public class PlexCatalog : ICatalog
         var plexMedias = JsonSerializer.Deserialize<List<PlexMedia>>(metadataJson);
 
 
-        return plexMedias.Select(plexMedia => new PlexMedia
-        {
-            Title = plexMedia.Title,
-            Type = plexMedia.Type,
-            AddedAt = plexMedia.AddedAt,
-            Summary = plexMedia.Summary,
-            Season = plexMedia.Season,
-            TvShow = plexMedia.TvShow,
-            Episode = plexMedia.Episode
-        }).Where(media => media.Type != MediaType.Unknown);
+        return plexMedias.Where(media => media.Type != MediaType.Unknown);
     }
 }
